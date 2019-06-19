@@ -24,24 +24,24 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="registerUserFieldID" maxWidth="-Infinity" prefWidth="200.0" promptText="username">
+            <TextField fx:id="registerUserFieldId" maxWidth="-Infinity" prefWidth="200.0" promptText="username">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Text fx:id="textUsername" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="textUsername" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" />
             <TextField fx:id="registerPasswordFieldId" maxWidth="-Infinity" prefWidth="200.0" promptText="password">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Text fx:id="passwordMisMatch" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="passwordMisMatch" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" />
             <TextField fx:id="registerConfPasswordFieldId" maxWidth="-Infinity" prefWidth="200.0" promptText="confirm password">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Text fx:id="passwordMisMatch2" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="passwordMisMatch2" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" />
             <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefWidth="200.0">
                <children>
                   <Button fx:id="registerBtn" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#onRegisterAction" style="-fx-background-color: white;" text="Register">
@@ -51,6 +51,11 @@
                   </Button>
                </children>
             </HBox>
+            <Text fx:id="statusRegisterId" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -79,7 +84,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </PasswordField>
-            <Text fx:id="textPasswordLogin" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="loginText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" />
             <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefWidth="200.0">
                <children>
                   <Button fx:id="loginBtn" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#onLoginAction" style="-fx-background-color: white;" text="Login">
@@ -89,7 +94,6 @@
                   </Button>
                </children>
             </HBox>
-            <Text fx:id="textNoSuchUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="106.13671875" />
          </children>
       </VBox>
    </children>
