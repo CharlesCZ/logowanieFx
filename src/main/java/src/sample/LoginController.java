@@ -1,7 +1,9 @@
 package src.sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -12,8 +14,6 @@ import src.model.DatabaseVoip;
 import src.model.User;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 
@@ -50,7 +50,7 @@ public class LoginController {
     private Text loginText;
 
     @FXML
-    private void onLoginAction() throws IOException {
+    private void onLoginAction(ActionEvent event) throws IOException {
         loginText.setText("");
         DatabaseVoip d=new DatabaseVoip();
 
@@ -61,11 +61,12 @@ if(user==null){
 }
        // d.insertHistoryConnection(user.getId(),"sip sendera","sip invitera",new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()));
 
-        System.out.println(loginUserFieldId.getText());
-
-        System.out.println(loginPasswordFieldId.getText());
+        ((Node)event.getSource()).getScene().getWindow().hide();
         Stage primaryStage= new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/main.fxml"));
+FXMLLoader loader=new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("/afterLogin.fxml").openStream());
+        AfterLoginController afterLoginController=(AfterLoginController)loader.getController();
+        afterLoginController.setUser(user);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();
