@@ -14,6 +14,7 @@ import src.model.DatabaseVoip;
 import src.model.User;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 
@@ -59,7 +60,9 @@ if(user==null){
     loginText.setText("Wrong login or password");
     return;
 }
-       // d.insertHistoryConnection(user.getId(),"sip sendera","sip invitera",new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()));
+
+
+        d.insertHistoryConnection(user.getId(),"sip sendera","sip invitera",new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis()));
 
         ((Node)event.getSource()).getScene().getWindow().hide();
         Stage primaryStage= new Stage();

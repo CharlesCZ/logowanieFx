@@ -66,14 +66,14 @@ public class DatabaseVoip {
     }
 
 
-    public boolean insertHistoryConnection(int userId, String uriSender, String uriInvited, Date beginDate, Date endDate) {
+    public boolean insertHistoryConnection(int userId, String uriSender, String uriInvited, Timestamp beginDate, Timestamp endDate) {
         try {
             PreparedStatement prepStmt = conn.prepareStatement("insert into history_connections values (NULL,?,?,?,?,?);");
             prepStmt.setInt(1, userId);
             prepStmt.setString(2, uriSender);
             prepStmt.setString(3, uriInvited);
-            prepStmt.setDate(4, beginDate);
-            prepStmt.setDate(5, endDate);
+            prepStmt.setTimestamp(4, beginDate);
+            prepStmt.setTimestamp(5, endDate);
             prepStmt.execute();
         } catch (SQLException e) {
             System.err.println("Blad przy dodawaniu do historii");
@@ -138,15 +138,15 @@ public class DatabaseVoip {
             int idUser;
             String uriSender;
             String uriInvited;
-            Date beginDate;
-            Date endDate;
+            Timestamp beginDate;
+           Timestamp endDate;
             while (resultSet.next()) {
                 idCon = resultSet.getInt("id_con");
                 idUser = resultSet.getInt("id_user");
                 uriSender = resultSet.getString("uri_sender");
                 uriInvited = resultSet.getString("uri_invited");
-                beginDate = resultSet.getDate("begin_date");
-                endDate = resultSet.getDate("end_date");
+                beginDate = resultSet.getTimestamp("begin_date");
+                endDate = resultSet.getTimestamp("end_date");
                 historyConnections.add(new HistoryConnection(idCon,idUser,uriSender,uriInvited,beginDate,endDate));
 
             }
